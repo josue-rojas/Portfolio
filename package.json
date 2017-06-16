@@ -4,7 +4,8 @@
   "description": "Portfio and Blog Project",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"app.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +16,7 @@
     "http-server": "^0.10.0",
     "node": "0.0.0",
     "pg": "^6.2.4"
-    
+
   }
 
 }
