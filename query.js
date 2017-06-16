@@ -3,7 +3,7 @@ var connectionString = "postgres://postgres:1234567890@localhost:5432/portfolio"
 var pgClient = new pg.Client(connectionString);
 pgClient.connect();
 
-pgClient.query("CREATE TABLE IF NOT EXISTS comment(id SERIAL UNIQUE,date date NOT NULL default CURRENT_DATE, name varchar(255) NOT NULL, email varchar(255) NOT NULL, comment text NOT NULL)");
+//pgClient.query("CREATE TABLE IF NOT EXISTS comment(id SERIAL UNIQUE,date date NOT NULL default CURRENT_DATE, name varchar(255) NOT NULL, email varchar(255) NOT NULL, comment text NOT NULL)");
 pgClient.end();
 //pgClient.query("CREATE TABLE IF NOT EXISTS comment(id SERIAL UNIQUE,date date NOT NULL default CURRENT_DATE, name varchar(255) NOT NULL, email varchar(255) NOT NULL, comment text NOT NULL, postID Integer NOT NULL REFERENCES blog(id))");
 //pgClient.query("DROP TABLE comment")
