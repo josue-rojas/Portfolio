@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= title %></title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../resources/app.css">
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <div class="container" id="cont">
+      <div class="jumbotron" id="jumbo">
+        <form id="form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="name" class="form-control" id="name" aria-describedby="name" placeholder="Enter your name please">
+          </div>
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Enter title">
+          </div>
+          <div class="form-group">
+            <label for="body">Body</label>
+            <textarea class="form-control" id="body" rows="10" placeholder="To be or not to be..."></textarea>
+          </div>
+          <center>
+            <button id="submitButton"  type="button" class="btn btn-primary" onclick="submitPost()">Submit</button>
+            <button id="reset"  type="button" class="btn btn-default" onclick="resetPost()">Reset</button>
+        </center>
+        </form>
+        <div id="preview" style="display:none">
+          <div id="previewPlace">
+          </div>
+        <center><button id="edit" type="button" class="btn btn btn-warning" onclick="edit()">Edit</button>
+          <button id="comfirmButton" type="button" class="btn btn-danger" onclick="comfirmPost()">Comfirm</button>
+        </center>
+      </div>
+      </div>
+    </div>
+
+</body>
+<script src="../app.js"></script>
+</html>

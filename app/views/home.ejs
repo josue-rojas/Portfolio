@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Josue's Portolio</title>
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body class="">
+  <%- include('partials/navbar') %>
+
+
+
+
+
+    <div class="container" id="cont0">
+        <div class="jumbotron" id="jumbo0">
+          <a href="https://github.com/josuerojasrojas">
+            <img src="images/github_logo.png" class="containerImage" id="0" onmouseout="gitImage(0,false)" onmouseover="gitImage(0)"/>
+          </a>
+          <a href="#">
+            <img src="images/linkin_logo.png" class="containerImage"/>
+          </a>
+            <h1>Josue Rojas</h1>
+            <p class="lead">Check out my projects below </p>
+        </div>
+    </div>
+
+  <% if(data){for(i = 0 ; i < data.length; i++){ %>
+    <div class="container" id="cont<%= i+1 %>">
+    <div class="jumbotron" id="jumbo<%= i+1 %>">
+      <a href="<%= data[i].url %>">
+        <img src="images/github_logo.png" class="containerImage" id="<%= i+1 %>" onmouseout="gitImage(<%= i+1 %>, false)" onmouseover="gitImage(<%= i+1 %>)"/>
+        </a>
+        <h2><%= data[i].title %></h2>
+        <p class="lead"><%= data[i].languages %></p>
+        <p><%= data[i].info %></p>
+      </div>
+    </div>
+        <% } }%>
+
+</body>
+<script src="app.js"></script>
+</html>
