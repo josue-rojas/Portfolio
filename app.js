@@ -22,10 +22,11 @@ pgClient.connect();
 
 // set the view engine to ejs
 app.set('view engine', 'ejs')
+console.log("inside app.js");
 //-----------------------------------------------------------------------------
-pgClient.query("CREATE TABLE IF NOT EXISTS blog(id SERIAL UNIQUE PRIMARY KEY, title varchar(255) NOT NULL, date date NOT NULL, url varchar(255) NOT NULL, summary text NOT NULL, body text NOT NULL)")
-pgClient.query("CREATE TABLE IF NOT EXISTS comment(id SERIAL UNIQUE PRIMARY KEY,date date NOT NULL default CURRENT_DATE, name varchar(255) NOT NULL, email varchar(255) NOT NULL, comment text NOT NULL, postID Integer NOT NULL REFERENCES blog(id))");
-pgClient.query("CREATE TABLE IF NOT EXISTS projects(id SERIAL UNIQUE PRIMARY KEY, title varchar(255) NOT NULL, date date NOT NULL, url varchar(255) NOT NULL, languages varchar(255) NOT NULL, info text NOT NULL)")
+//pgClient.query("CREATE TABLE IF NOT EXISTS blog(id SERIAL UNIQUE PRIMARY KEY, title varchar(255) NOT NULL, date date NOT NULL, url varchar(255) NOT NULL, summary text NOT NULL, body text NOT NULL)")
+//pgClient.query("CREATE TABLE IF NOT EXISTS comment(id SERIAL UNIQUE PRIMARY KEY,date date NOT NULL default CURRENT_DATE, name varchar(255) NOT NULL, email varchar(255) NOT NULL, comment text NOT NULL, postID Integer NOT NULL REFERENCES blog(id))");
+//pgClient.query("CREATE TABLE IF NOT EXISTS projects(id SERIAL UNIQUE PRIMARY KEY, title varchar(255) NOT NULL, date date NOT NULL, url varchar(255) NOT NULL, languages varchar(255) NOT NULL, info text NOT NULL)")
 
 //-----------------------------------------------------------------------------
 // home page
@@ -109,9 +110,7 @@ app.get('/*',function(req,res){
   res.render('404',{ title: "404", act:""})
 })
 //-----------------------------------------------------------------------------
-
+console.log('listening on port 8080')
 app.listen(8080,function () {
     var host = server.address().address;
   console.log(host)})
-
-console.log('listening on port 3000')
