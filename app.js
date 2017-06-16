@@ -111,6 +111,4 @@ app.get('/*',function(req,res){
 })
 //-----------------------------------------------------------------------------
 console.log('listening on port 8080')
-app.listen(8080,function () {
-    var host = server.address().address;
-  console.log(host)})
+app.listen(8080)
