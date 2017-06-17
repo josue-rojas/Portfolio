@@ -72,8 +72,6 @@ function submitComment(id){
   alert(alertMess);
 }
 
-
-
 function refreshB(id){
   var out=""
   $.ajax({
@@ -81,14 +79,22 @@ function refreshB(id){
     url:"/blog/"+id+"/comments",
     success:function(r){
       if(r){
-        console.log(r);
-
         for(i = 0; i < r.length; i++){
           out += '<div class="jumbotron singleComment"><h2>'+r[i].name+'</h2><p>'+r[i].comment+'</p></div>'
-
         }
         document.getElementById("comments").innerHTML = out;
       }
+    }
+  })
+}
+
+function deletePost(id){
+  $.ajax({
+    type:"POST",
+    url:'/delete/'+id,
+    success:function(r){
+      var url = window.location.href.split("/")
+      window.location = 'http://' + url[url.length-2] + "/blog"
     }
   })
 }
@@ -121,6 +127,7 @@ function edit(){
   $('#form').show();
   $('#preview').hide();
 }
+
 function comfirmPost(){
   var title = document.getElementById("title").value;
   var body = document.getElementById("body").value;
@@ -134,8 +141,6 @@ function comfirmPost(){
     contentType: 'application/json',
     data: JSON.stringify(data),
     success:function(res){
-      console.log("SUCESS");
-      //send back
       var url = window.location.href.split("/")
       window.location = 'http://' + url[url.length-2] + "/blog" //theoretically should always be the second to last
     }

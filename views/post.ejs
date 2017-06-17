@@ -15,7 +15,7 @@
       <center><h2><%= data.title %></h2></center>
       <% include partials/processPHTML.ejs %>
       <%- proccesPHTML(data.body) %>
-      <center><button type="button" class="btn btn-danger">Delete</button></center>
+      <center><button type="button" class="btn btn-danger" onclick="deletePost(<%= data.id %>)">Delete</button></center>
     </div>
   </div>
 
