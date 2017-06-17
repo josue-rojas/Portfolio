@@ -11,12 +11,15 @@
 <body>
   <%- include('partials/navBar') %>
   <% if (data.length == 0) {%>
+    <a href='/newpost' class="blogC">
     <div class="container">
       <div class="jumbotron">
-        <center><h2>No Post To show</h2></center>
-        <a href='/newpost'> Create New Post </a>
+        <center><h2>No Post To show</h2>
+          <h2>Create New Post<h2>
+        </center>
       </div>
     </div>
+    </a>
   <% } %>
   <% data = data.reverse();for(i = 0 ; i < data.length; i++){ %>
     <div class="container">
