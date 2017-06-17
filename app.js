@@ -108,6 +108,12 @@ app.post('/newpost', function(req, res){
   //res.render('newpost',{act:"newpost",title:'New Post'})
 })
 //-----------------------------------------------------------------------------
+app.post('/delete/:id', function(req, res){
+  pgClient.query("Delete from comment WHERE postID="+req.params.id);
+  pgClient.query("Delete from blog WHERE id="+req.params.id);
+  res.end('{success : "Updated Successfully", "status" : 200}');
+})
+//-----------------------------------------------------------------------------
 app.get('/*',function(req,res){
   res.render('404',{ title: "404", act:""})
 })
