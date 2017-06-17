@@ -21,7 +21,6 @@ var pgClient = new pg.Client(connectionString);
 pgClient.connect();
 
 // set the view engine to ejs
-app.set('views', '/views')
 app.set('view engine', 'ejs')
 console.log("inside app.js");
 //-----------------------------------------------------------------------------
