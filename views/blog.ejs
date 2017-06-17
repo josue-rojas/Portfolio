@@ -10,9 +10,16 @@
 </head>
 <body>
   <%- include('partials/navBar') %>
-
-  <% data = data.reverse(); if(data){for(i = 0 ; i < data.length; i++){ %>
-    <div class="container" >
+  <% if (data.length == 0) {%>
+    <div class="container">
+      <div class="jumbotron">
+        <center><h2>No Post To show</h2></center>
+        <a href='/newpost'> Create New Post </a>
+      </div>
+    </div>
+  <% } %>
+  <% data = data.reverse();for(i = 0 ; i < data.length; i++){ %>
+    <div class="container">
       <a href="/blog/<%= data[i].id %>" class="blogC">
     <div class="jumbotron">
         <h2 class=""><%= data[i].title %></h2>
@@ -20,7 +27,7 @@
       </div>
     </a>
     </div>
-        <% } }%>
+        <% } %>
 
 </body>
 </html>
