@@ -33,7 +33,7 @@ console.log("inside app.js");
 //-----------------------------------------------------------------------------
 // home page
 app.get('/', (req, res) => {
-  var query = pgClient.query("SELECT title, url, languages, info FROM projects ORDER BY date ASC");
+  var query = pgClient.query("SELECT title, url, languages, info FROM projects ORDER BY date DESC");
   query.on("row", function (row, result) {
     result.addRow(row);
   });
