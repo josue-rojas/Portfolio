@@ -20,7 +20,7 @@ var pgClient = new pg.Client(connectionString);
 pgClient.connect();
 
 // set the view engine to ejs
-//app.set('view engine', 'ejs')
+app.set('view engine', 'ejs')
 console.log("inside app.js");
 //-----------------------------------------------------------------------------
 //pgClient.query("CREATE TABLE IF NOT EXISTS blog(id SERIAL UNIQUE PRIMARY KEY, title varchar(255) NOT NULL, date date NOT NULL, url varchar(255) NOT NULL, summary text NOT NULL, body text NOT NULL)")
