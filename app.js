@@ -26,7 +26,7 @@ console.log("inside app.js");
 //pgClient.query("CREATE TABLE IF NOT EXISTS blog(id SERIAL UNIQUE PRIMARY KEY, title varchar(255) NOT NULL, date date NOT NULL, url varchar(255) NOT NULL, summary text NOT NULL, body text NOT NULL)")
 //pgClient.query("CREATE TABLE IF NOT EXISTS comment(id SERIAL UNIQUE PRIMARY KEY,date date NOT NULL default CURRENT_DATE, name varchar(255) NOT NULL, email varchar(255) NOT NULL, comment text NOT NULL, postID Integer NOT NULL REFERENCES blog(id))");
 //pgClient.query("CREATE TABLE IF NOT EXISTS projects(id SERIAL UNIQUE PRIMARY KEY, title varchar(255) NOT NULL, date date NOT NULL, url varchar(255) NOT NULL, languages varchar(255) NOT NULL, info text NOT NULL)")
-pgClient.query("INSERT INTO projects(title, date, url,languages, info) values($1,$2,$3,$4,$5)",["Revenge","2016-5-30","https://github.com/josuerojasrojas/Revenge","Java","This project was made for video game programming course. It shows parallex scrolling, sprites, simple csv reader, and ps3 controller api"])
+//pgClient.query("INSERT INTO projects(title, date, url,languages, info) values($1,$2,$3,$4,$5)",["Revenge","2016-5-30","https://github.com/josuerojasrojas/Revenge","Java","This project was made for video game programming course. It shows parallex scrolling, sprites, simple csv reader, and ps3 controller api"])
 //-----------------------------------------------------------------------------
 // home page
 app.get('/', (req, res) => {
