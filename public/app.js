@@ -142,7 +142,7 @@ function comfirmPost(){
     data: JSON.stringify(data),
     success:function(res){
       var url = window.location.href.split("/")
-      window.location = 'http://' + url[url.length-2] + "/blog" //theoretically should always be the second to last
+      window.location = 'http://' + url[url.length-3] + "/blog" 
     }
   })
 
