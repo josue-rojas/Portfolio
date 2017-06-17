@@ -15,7 +15,7 @@ app.use(express.static( "public" )); //access pictures and suchs
 
 app.use(parser.json());
 //connect to database
-var connectionString = "postgres://postgres:1234567890@localhost:5432/portfolio";
+var connectionString = "postgres://qztjolhrzsotrl:4f88f9621ee0de6a4cb1f161119f6d7885b37091aaa41428b21d5c6f0e504097@ec2-184-73-167-43.compute-1.amazonaws.com:5432/d462qipcfp5r43";
 var pgClient = new pg.Client(connectionString);
 pgClient.connect();
 
