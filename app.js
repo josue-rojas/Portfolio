@@ -59,7 +59,7 @@ app.get('/blog',(req, res) =>{
 // blog post
 app.get('/blog/:id', (req, res) => {
   //when getting comments must join tables
-  var query = pgClient.query("SELECT blog.id, title, body FROM blog WHERE blog.id=" + req.params.id);
+  var query = pgClient.query("SELECT id, title, body FROM blog WHERE id=" + req.params.id);
   query.on("row", function(row, result){
     result.addRow(row);
   });
