@@ -18,16 +18,17 @@ app.use(parser.json());
 var connectionString = "postgres://qztjolhrzsotrl:4f88f9621ee0de6a4cb1f161119f6d7885b37091aaa41428b21d5c6f0e504097@ec2-184-73-167-43.compute-1.amazonaws.com:5432/d462qipcfp5r43";
 var pgClient = new pg.Client(connectionString);
 pgClient.connect();
+//pgClient.query("CREATE TABLE IF NOT EXISTS blog(id SERIAL UNIQUE PRIMARY KEY, title varchar(255) NOT NULL, date date NOT NULL default CURRENT_DATE, summary text NOT NULL, body text NOT NULL)")
+
 
 // set the view engine to ejs
 app.set('view engine', 'ejs')
-console.log("inside app.js");
 //-----------------------------------------------------------------------------
 //pgClient.query("DROP TABLE blog CASCADE;");
 //pgClient.query("CREATE TABLE IF NOT EXISTS blog(id SERIAL UNIQUE PRIMARY KEY, title varchar(255) NOT NULL, date date NOT NULL default CURRENT_DATE, summary text NOT NULL, body text NOT NULL)")
 //pgClient.query("CREATE TABLE IF NOT EXISTS comment(id SERIAL UNIQUE PRIMARY KEY,date date NOT NULL default CURRENT_DATE, name varchar(255) NOT NULL, email varchar(255) NOT NULL, comment text NOT NULL, postID Integer NOT NULL REFERENCES blog(id))");
 //pgClient.query("CREATE TABLE IF NOT EXISTS projects(id SERIAL UNIQUE PRIMARY KEY, title varchar(255) NOT NULL, date date NOT NULL, url varchar(255) NOT NULL, languages varchar(255) NOT NULL, info text NOT NULL)")
-pgClient.query("INSERT INTO projects(title, date, url,languages, info) values($1,$2,$3,$4,$5)",["Migration of Language and Income","2016-05-4","https://github.com/josuerojasrojas/Migration_of_Language_and_Income","Python","This project was for data science course. It tries to show and answer the question ' Is there a relationship between migration vs language vs income?'"])
+//pgClient.query("INSERT INTO projects(title, date, url,languages, info) values($1,$2,$3,$4,$5)",["Migration of Language and Income","2016-05-4","https://github.com/josuerojasrojas/Migration_of_Language_and_Income","Python","This project was for data science course. It tries to show and answer the question ' Is there a relationship between migration vs language vs income?'"])
 //pgClient.query("INSERT INTO projects(title, date, url,languages, info) values($1,$2,$3,$4,$5)",["JukeBox","2017-06-07","https://github.com/josuerojasrojas/JukeBox","HTML, JavaScript, and CSS","This project is a Jukebox that shows basic controls not using the default controls. It can play url mp3s and uses the Spotify to get Spotify preview from song links."])
 
 //-----------------------------------------------------------------------------
