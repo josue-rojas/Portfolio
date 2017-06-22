@@ -4,8 +4,8 @@
 //change github image used on home
 function gitImage(id, mouseOver=true){
   var gitHub = document.getElementById(""+id)
-  if(mouseOver) gitHub.setAttribute("src",window.location +"/images/github_logo_hover.png")
-  else gitHub = gitHub.setAttribute("src",window.location +"/images/github_logo.png")
+  if(mouseOver) gitHub.setAttribute("src","images/github_logo_hover.png")
+  else gitHub = gitHub.setAttribute("src","images/github_logo.png")
 }
 
 function filterHome(id,total){
