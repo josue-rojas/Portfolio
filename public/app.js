@@ -5,7 +5,7 @@
 function gitImage(id, mouseOver=true){
   var gitHub = document.getElementById(""+id)
   if(mouseOver) gitHub.setAttribute("src",window.location.hostname+"images/github_logo_hover.png")
-  else gitHub = gitHub.setAttribute("src",window.location.hostname"images/github_logo.png")
+  else gitHub = gitHub.setAttribute("src",window.location.hostname+"images/github_logo.png")
 }
 
 function filterHome(id,total){
