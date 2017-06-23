@@ -178,16 +178,20 @@ function addGeo(){
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
       console.log("lat "+ position.coords.latitude + " lng " + position.coords.longitude)
-      // $.ajax({
-      //   type:"POST",
-      //   url:"/newLocation",
-      //   processData:false,
-      //   datatype:'json',
-      //   data:JSON.stringify({"lat":position.coords.latitude,"lng":position.coords.longitude}),
-      //   success:function(res){
-      //     window.location = window.location;
-      //   }
-      // })
+      var postGeo = function(p = position.coords.latitude){
+        $.ajax({
+          type:"POST",
+          url:"/newLocation",
+          processData:false,
+          datatype:'json',
+          data:JSON.stringify({"lat":position.coords.latitude,"lng":position.coords.longitude}),
+          success:function(res){
+            window.location = window.location;
+          }
+        })
+      }
+      postGeo();
+
     }
   )}
   else {
