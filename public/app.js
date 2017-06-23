@@ -165,6 +165,18 @@ function comfirmPost(){
   })
 
 }
+//maps
+//-------------------------------------------------------------------------
+function hideGeoBox(){
+  $("#geoBox").hide();
+  $("#geoBoxAdd").fadeOut(700);
+}
+
+function addGeo(){
+  //add regex
+  //handle post
+}
+
 
 //everywhere
 //-------------------------------------------------------------------------

@@ -2,8 +2,11 @@
 <p id="info"></p>
 <div id="geoBoxAdd" class="well">
   <strong>Add your coordinates</strong>
+  <br />
+  <button type="button" class="btn btn-danger" onclick="addGeo()">Add</button>
+  <button type="button" class="btn btn-warning" onclick="hideGeoBox()">Nah!</button>
 </div>
-<div id="geoBox">
+<div id="geoBox" onclick="hideGeoBox()">
 </div>
 
 <script>
