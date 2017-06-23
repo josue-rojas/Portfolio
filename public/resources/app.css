@@ -40,15 +40,10 @@
   text-decoration:none;
 }
 
-iframe {
-         width: 1px;
-         min-width: 100%;
-         *width: 100%;
-         height: 500px;
-    }
 
 .slideBox{
-  width: 100%
+  width: 100%;
+  border-radius:10px;
 }
 
 .picLink{
