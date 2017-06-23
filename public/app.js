@@ -200,14 +200,14 @@ function postGeo(){
       url:"/newLocation",
       processData:false,
       datatype:'json',
-      data:JSON.stringify({"lat":document.getElementById("lat").innerHTML,"lng":document.getElementById("lng").innerHTML}),
+      data:JSON.stringify({"lat":document.getElementById("lat").innerText,"lng":document.getElementById("lng").innerText}),
       success:function(res){
         //window.location = window.location;
       }
     })
   }
   else{
-    alert("waiting for location, press again when numbers appear");
+    alert("waiting for location, press again when numbers appear or press 'Nah!'");
   }
 }
 
