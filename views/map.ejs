@@ -60,7 +60,9 @@
             {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
       }
       var locations = [<% for(let k = 0; k < data.length; k++){ %>
+        <% if(data[k].lat && data[k].lng)) { %>
       {lat:<%= data[k].lat %>, lng: <%= data[k].lng %>}
+      <%}%>
         <% if(k < data.length-1){ %> ,<% } %>
         <% } %>
       ]
