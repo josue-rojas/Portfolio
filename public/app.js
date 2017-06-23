@@ -35,7 +35,7 @@ function changeView(){
   else{
     $("#normalView").fadeIn(500);
     $("#slideView").fadeOut(500);
-      normalView = false;
+      normalView = true;
   }
 }
 

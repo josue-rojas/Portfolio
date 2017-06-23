@@ -8,11 +8,11 @@
       <li class="active dropdown">
          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filter<span class="caret"></span></a>
          <ul class="dropdown-menu">
+           <li onclick="changeView()"><img src="images/view.png" /></li>
            <li onclick="filterHome(-1,<%= data.length+1 %>)"><a href="#">All</a></li>
            <% if(data){for(i = 0 ; i < data.length; i++){ %>
            <li onclick="filterHome(<%= i+1 %>,<%= data.length+1 %>)"><a href="#"><%= data[i].title %></a></li>
            <% }} %>
-           <li onclick="changeView()"><img src="images/view.png" /></li>
          </ul>
        </li>
        <% } %>
