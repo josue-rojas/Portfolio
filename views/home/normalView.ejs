@@ -1,17 +1,5 @@
 <div id="normalView">
-  <div class="container" id="cont0">
-      <div class="jumbotron" id="jumbo0">
-        <a href="https://github.com/josuerojasrojas">
-          <img src="images/github_logo.png" class="containerImage" id="0" onmouseout="gitImage(0,false)" onmouseover="gitImage(0)"/>
-        </a>
-        <a href="#">
-          <img src="images/linkin_logo.png" class="containerImage"/>
-        </a>
-          <h1>Josue Rojas</h1>
-          <p class="lead">Check out my projects below </p>
-      </div>
-  </div>
-
+  
   <% if(data){for(i = 0 ; i < data.length; i++){ %>
     <div class="container" id="cont<%= i+1 %>">
       <div class="jumbotron" id="jumbo<%= i+1 %>">

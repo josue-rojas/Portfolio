@@ -6,11 +6,25 @@
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/app.css">
     <script src="jquery.min.js"></script>
-
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class="">
   <%- include partials/navBar %>
+    <div class="container" id="cont0">
+        <div class="jumbotron" id="jumbo0">
+          <a href="https://github.com/josuerojasrojas">
+            <img src="images/github_logo.png" class="containerImage" id="0" onmouseout="gitImage(0,false)" onmouseover="gitImage(0)"/>
+          </a>
+          <a href="#">
+            <img src="images/linkin_logo.png" class="containerImage"/>
+          </a>
+            <h1>Josue Rojas</h1>
+            <p class="lead">Check out my projects below </p>
+        </div>
+    </div>
+
   <%- include home/normalView %>
+  <%- include home/slideView %>
 
 </body>
 <script src="app.js"></script>
