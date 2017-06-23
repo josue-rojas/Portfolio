@@ -199,7 +199,7 @@ function postGeo(){
       contentType: 'application/json',
       data:JSON.stringify({"lat":document.getElementById("lat").innerText,"lng":document.getElementById("lng").innerText}),
       success:function(res){
-        window.location = window.location;
+        window.location = window.location + "/false"; //should add false to show add new location
       }
     })
   }
