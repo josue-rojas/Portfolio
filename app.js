@@ -24,8 +24,8 @@ pgClient.connect();
 // set the view engine to ejs
 app.set('view engine', 'ejs')
 //-----------------------------------------------------------------------------
-//pgClient.query("CREATE TABLE IF NOT EXISTS locations(id SERIAL UNIQUE PRIMARY KEY, lat double precision, lng double precision)")
-//pgClient.query("DROP TABLE blog CASCADE;");
+pgClient.query("DROP TABLE blog locations;");
+pgClient.query("CREATE TABLE IF NOT EXISTS locations(id SERIAL UNIQUE PRIMARY KEY, lat double precision, lng double precision)")
 //pgClient.query("CREATE TABLE IF NOT EXISTS blog(id SERIAL UNIQUE PRIMARY KEY, title varchar(255) NOT NULL, date date NOT NULL default CURRENT_DATE, summary text NOT NULL, body text NOT NULL)")
 //pgClient.query("CREATE TABLE IF NOT EXISTS comment(id SERIAL UNIQUE PRIMARY KEY,date date NOT NULL default CURRENT_DATE, name varchar(255) NOT NULL, email varchar(255) NOT NULL, comment text NOT NULL, postID Integer NOT NULL REFERENCES blog(id))");
 //pgClient.query("CREATE TABLE IF NOT EXISTS projects(id SERIAL UNIQUE PRIMARY KEY, title varchar(255) NOT NULL, date date NOT NULL, url varchar(255) NOT NULL, languages varchar(255) NOT NULL, info text NOT NULL)")
@@ -44,7 +44,8 @@ app.get('/', (req, res) => {
     res.render('home', { data: result.rows, act:"home"})
   });
 })
-
+//-----------------------------------------------------------------------------
+//visitor map
 app.get('/map',(req, res) => {
   var query = pgClient.query("SELECT lat, lng FROM locations");
   query.on("row", function (row, result) {
@@ -56,6 +57,12 @@ app.get('/map',(req, res) => {
     res.render('map',{data: result.rows, act:"map"})
   });
 
+})
+//-----------------------------------------------------------------------------
+//post locations from visitor map
+app.post('/newLocation', (req, res) =>{
+  pgClient.query("INSERT INTO locations(id, lat, lng) values(DEFAULT, $1, $2)",[req.body.lat,req.body.lng]);
+  res.end('{success : "Updated Successfully", "status" : 200}');
 })
 
 //-----------------------------------------------------------------------------

@@ -14,30 +14,30 @@ function filterHome(id,total){
   normalView = true;
   if(id != -1){ $("#cont"+id).hide(1000,function(){
     $("#cont"+id).show(1000)})
-  for(i = 0; i < total; i++){
-    if(i != id) $("#cont"+i).hide(1000)
+    for(i = 0; i < total; i++){
+      if(i != id) $("#cont"+i).hide(1000)
+    }
   }
-}
-else{
-  for(i = 0; i < total; i++) {
-    $("#cont"+i).hide(-1);
+  else{
+    for(i = 0; i < total; i++) {
+      $("#cont"+i).hide(-1);
+    }
+    for(i = 0; i < total; i++) {
+      $("#cont"+i).show(1000);
+    }
   }
-  for(i = 0; i < total; i++) {
-    $("#cont"+i).show(1000);
-  }
-}
 }
 
 function changeView(){
   if(normalView){
     $("#normalView").fadeOut(500);
     $("#slideView").fadeIn(500);
-      normalView = false;
+    normalView = false;
   }
   else{
     $("#normalView").fadeIn(500);
     $("#slideView").fadeOut(500);
-      normalView = true;
+    normalView = true;
   }
 }
 
@@ -173,8 +173,23 @@ function hideGeoBox(){
 }
 
 function addGeo(){
-  //add regex
-  //handle post
+  var info = document.getElementById("info");
+  console.log("addgeo");
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function(position){
+      $.ajax({
+        type:"POST",
+        url:"/newLocation",
+        processData:false,
+        datatype:'json',
+        data:JSON.stringify({"lat":position.coords.latitude,"lng":position.coords.longitude}),
+        success:function(res){
+          window.location = window.location;
+        }
+      })
+    }
+  }
+  else info.innerHTML = "Geolocation is not supported by this browser. Could not add location."
 }
 
 

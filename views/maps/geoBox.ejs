@@ -3,25 +3,10 @@
 <div id="geoBoxAdd" class="well">
   <strong>Add your coordinates</strong>
   <br />
-  <button type="button" class="btn btn-danger" onclick="addGeo()">Add</button>
-  <button type="button" class="btn btn-warning" onclick="hideGeoBox()">Nah!</button>
+  <center>
+    <button type="button" class="btn btn-danger" onclick="addGeo()">Add</button>
+    <button type="button" class="btn btn-warning" onclick="hideGeoBox()">Nah!</button>
+  </center>
 </div>
 <div id="geoBox" onclick="hideGeoBox()">
 </div>
-
-<script>
-var x = document.getElementById("info");
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
-}
-</script>
