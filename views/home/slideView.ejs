@@ -1,10 +1,10 @@
 <div class="container slideBox">
   <div class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-      <% if(data){for(j = 0 ; i < data.length; j++){ %>
+      <% if(data){for(j = 0 ; j < data.length; j++){ %>
         <li data-target="#myCarousel" data-slide-to="<%= j %>" class="<% if(j==0>){ %>'activ<% }%>"></li>
         <% } }%>
     </ol>
-    
+
   </div>
 </div>
