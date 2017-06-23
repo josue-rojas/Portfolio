@@ -200,6 +200,7 @@ function postGeo(){
       url:"/newLocation",
       processData:false,
       datatype:'json',
+      contentType: 'application/json',
       data:JSON.stringify({"lat":document.getElementById("lat").innerText,"lng":document.getElementById("lng").innerText}),
       success:function(res){
         //window.location = window.location;
