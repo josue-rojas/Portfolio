@@ -24,11 +24,12 @@ else{
   }
 }
 }
+
 var normalView = true;
 function changeView(){
   if(normalView){
     $("#normalView").fadeOut(500);
-    $("#slideView").fadeIn(500;
+    $("#slideView").fadeIn(500);
       normalView = false;
   }
   else{
