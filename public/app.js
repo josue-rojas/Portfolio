@@ -186,8 +186,8 @@ function getLocation(callback) {
 
 function addGeo(){
   var info = document.getElementById("info");
-  console.log("addgeo");
   getLocation(function(res) {
+    console.log(res);
     $.ajax({
       type:"POST",
       url:"/newLocation",
