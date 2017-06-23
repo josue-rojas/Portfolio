@@ -172,17 +172,17 @@ function hideGeoBox(){
   $("#geoBoxAdd").fadeOut(700);
 }
 
-var lat;
-var lng;
+var lati;
+var lngi;
 
 function addGeo(){
   var info = document.getElementById("info");
   console.log("addgeo");
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
-      lat = position.coords.latitude;
+      lati= position.coords.latitude;
       lng = position.coords.longitude;
-      console.log({"lat":lat,"lng":lng});
+      console.log({"lat":lati,"lng":lngi});
       //postGeo(position.coords.latitude, position.coords.longitude);
     }
   )}
@@ -192,7 +192,7 @@ function addGeo(){
 }
 addGeo();
 
-function postGeo(lat, lng){
+function postGeo(lat=lati, lng=lngi){
   console.log({"inside postGeolat":lat,"lng":lng});
   $.ajax({
     type:"POST",
