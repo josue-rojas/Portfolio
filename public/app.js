@@ -172,19 +172,25 @@ function hideGeoBox(){
   $("#geoBoxAdd").fadeOut(700);
 }
 
+var lat;
+var lng;
+
 function addGeo(){
   var info = document.getElementById("info");
   console.log("addgeo");
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
-      console.log({"lat":position.coords.latitude,"lng":position.coords.longitude});
-      postGeo(position.coords.latitude, position.coords.longitude);
+      lat = position.coords.latitude;
+      lng = position.coords.longitude;
+      console.log({"lat":lat,"lng":lng);
+      //postGeo(position.coords.latitude, position.coords.longitude);
     }
   )}
   else {
     info.innerHTML = "Geolocation is not supported by this browser. Could not add location."
   }
 }
+addGeo();
 
 function postGeo(lat, lng){
   console.log({"inside postGeolat":lat,"lng":lng});
