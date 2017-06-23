@@ -40,6 +40,30 @@
   text-decoration:none;
 }
 
+iframe {
+         width: 1px;
+         min-width: 100%;
+         *width: 100%;
+         height: 500px;
+    }
+
+.slideBox{
+  width: 100%
+}
+
+.picLink{
+  width:10%;
+  margin-left:1%;
+}
+
+.invi{
+  position: absolute;
+  width:100%;
+  height: 100%;
+  z-index: 10;
+}
+
+
 
 
 
