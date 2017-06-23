@@ -180,9 +180,9 @@ function addGeo(){
   console.log("addgeo");
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
-      lati= position.coords.latitude;
-      lngi = position.coords.longitude;
-      console.log({"lat":lati,"lng":lngi});
+      document.getElementById("lat").innerHTML = position.coords.latitude;
+      document.getElementById("lng").innerHTML = position.coords.longitude;
+      //console.log({"lat":lati,"lng":lngi});
       //postGeo(position.coords.latitude, position.coords.longitude);
     }
   )}
@@ -192,18 +192,19 @@ function addGeo(){
 }
 addGeo();
 
-function postGeo(lat=lati, lng=lngi){
-  console.log({"inside postGeolat":lat,"lng":lng});
-  $.ajax({
-    type:"POST",
-    url:"/newLocation",
-    processData:false,
-    datatype:'json',
-    data:JSON.stringify({"lat":lat,"lng":lng}),
-    success:function(res){
-      //window.location = window.location;
-    }
-  })
+function postGeo(){
+  if(!document.getElementById("lat").innerHTML == "" || !document.getElementById("lng").innerHTML == ""){
+    $.ajax({
+      type:"POST",
+      url:"/newLocation",
+      processData:false,
+      datatype:'json',
+      data:JSON.stringify({"lat":document.getElementById("lat").innerHTML,"lng":document.getElementById("lng").innerHTML}),
+      success:function(res){
+        //window.location = window.location;
+      }
+    })
+  }
 }
 
 
