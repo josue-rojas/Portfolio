@@ -194,6 +194,7 @@ addGeo();
 
 function postGeo(){
   if(!document.getElementById("lat").innerText == "" || !document.getElementById("lng").innerText == ""){
+    console.log("latHTML " + document.getElementById("lat").innerText)
     $.ajax({
       type:"POST",
       url:"/newLocation",
@@ -204,6 +205,9 @@ function postGeo(){
         //window.location = window.location;
       }
     })
+  }
+  else{
+    alert("waiting for location, press again when numbers appear");
   }
 }
 
