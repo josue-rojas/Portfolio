@@ -51,6 +51,7 @@ app.get('/map',(req, res) => {
     result.addRow(row);
   });
   query.on("end", function (result) {
+    console.log(result.row);
     //return the data to the page
     res.render('map',{data: result.row, act:"map"})
   });
