@@ -177,7 +177,7 @@ function addGeo(){
   console.log("addgeo");
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
-      console.log("lat "+ position.coords.latitude + " lng " + position.coords.longitude})
+      console.log("lat "+ position.coords.latitude + " lng " + position.coords.longitude)
       // $.ajax({
       //   type:"POST",
       //   url:"/newLocation",
