@@ -177,13 +177,10 @@ var lngi;
 
 function addGeo(){
   var info = document.getElementById("info");
-  console.log("addgeo");
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
       document.getElementById("lat").innerHTML = position.coords.latitude;
       document.getElementById("lng").innerHTML = position.coords.longitude;
-      //console.log({"lat":lati,"lng":lngi});
-      //postGeo(position.coords.latitude, position.coords.longitude);
     }
   )}
   else {
@@ -194,7 +191,6 @@ addGeo();
 
 function postGeo(){
   if(!document.getElementById("lat").innerText == "" || !document.getElementById("lng").innerText == ""){
-    console.log("latHTML " + document.getElementById("lat").innerText)
     $.ajax({
       type:"POST",
       url:"/newLocation",
@@ -203,7 +199,7 @@ function postGeo(){
       contentType: 'application/json',
       data:JSON.stringify({"lat":document.getElementById("lat").innerText,"lng":document.getElementById("lng").innerText}),
       success:function(res){
-        //window.location = window.location;
+        window.location = window.location;
       }
     })
   }
