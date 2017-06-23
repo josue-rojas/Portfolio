@@ -195,7 +195,7 @@ function postGeo(lat, lng){
     datatype:'json',
     data:JSON.stringify({"lat":lat,"lng":lng}),
     success:function(res){
-      window.location = window.location;
+      //window.location = window.location;
     }
   })
 }
