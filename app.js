@@ -61,6 +61,7 @@ app.get('/map',(req, res) => {
 //-----------------------------------------------------------------------------
 //post locations from visitor map
 app.post('/newLocation', (req, res) =>{
+  console.log("adding new loc " + req.body.lat);
   pgClient.query("INSERT INTO locations(id, lat, lng) values(DEFAULT, $1, $2)",[req.body.lat,req.body.lng]);
   res.end('{success : "Updated Successfully", "status" : 200}');
 })
