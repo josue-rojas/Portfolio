@@ -56,7 +56,10 @@
         var markerCluster = new MarkerClusterer(map, markers,
             {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
       }
-      var locations = <%= data %>
+      var locations = <% for(let k = 0; k < data.length; k++){ %>
+      {lat:<%= data[k].lat %>, lng: <%= data[k].lng %>}
+        <% if(k < data.length-1){ %> ,<% } %>
+        <% } %>
     </script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
