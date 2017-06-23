@@ -193,7 +193,7 @@ function addGeo(){
 addGeo();
 
 function postGeo(){
-  if(!document.getElementById("lat").innerHTML == "" || !document.getElementById("lng").innerHTML == ""){
+  if(!document.getElementById("lat").innerText == "" || !document.getElementById("lng").innerText == ""){
     $.ajax({
       type:"POST",
       url:"/newLocation",
