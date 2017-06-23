@@ -52,7 +52,7 @@ app.get('/map(:show)?',(req, res) => {
     result.addRow(row);
   });
   query.on("end", function (result) {
-    console.log(result.rows);
+    console.log(req.params.show);
     //return the data to the page
     if(!req.params.show || req.params.show != "false") res.render('map',{data: result.rows, act:"map",showR:1});
     else res.render('map',{data: result.rows, act:"map",showR:0});
