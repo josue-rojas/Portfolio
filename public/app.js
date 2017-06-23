@@ -181,7 +181,7 @@ function addGeo(){
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
       lati= position.coords.latitude;
-      lng = position.coords.longitude;
+      lngi = position.coords.longitude;
       console.log({"lat":lati,"lng":lngi});
       //postGeo(position.coords.latitude, position.coords.longitude);
     }
