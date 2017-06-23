@@ -11,7 +11,7 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
       <% if(data){for(l = 0 ; l < data.length; l++){ %>
-        <div class="item active" id="item1">
+        <div class="item <% if(l==0){ %>active <% } %>" id="item1">
           <div id="top<%= l %>" class="invi" onclick=""></div>
           <div class="container" id="slideCon<%= l+1 %>">
             <div class="jumbotron" id="slideJumbo<%= l+1 %>">
