@@ -1,4 +1,4 @@
-<div id="slideView">
+<div id="slideView" style="display:none;">
   <div class="container slideBox">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
@@ -12,7 +12,6 @@
       <div class="carousel-inner">
       <% if(data){for(l = 0 ; l < data.length; l++){ %>
         <div class="item <% if(l==0){ %>active <% } %>" id="item1">
-          <div id="top<%= l %>" class="invi" onclick=""></div>
           <div class="container" id="slideCon<%= l+1 %>">
             <div class="jumbotron" id="slideJumbo<%= l+1 %>">
               <a href="<%= data[l].url %>">
@@ -37,7 +36,6 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-    <center><img src="github_logo.png" class="picLink"/><img src="github_logo.png" class="picLink"/><img src="github_logo.png" class="picLink"/></center>
   </div>
 
 </div>
