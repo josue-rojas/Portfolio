@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
 })
 //-----------------------------------------------------------------------------
 //visitor map
-app.get('/map',(req, res) => {
+app.get('/map(:show)?',(req, res) => {
   var query = pgClient.query("SELECT lat, lng FROM locations");
   query.on("row", function (row, result) {
     result.addRow(row);
@@ -55,20 +55,6 @@ app.get('/map',(req, res) => {
     console.log(result.rows);
     //return the data to the page
     res.render('map',{data: result.rows, act:"map",showR:1})
-  });
-
-})
-//-----------------------------------------------------------------------------
-//visitor map show no request to add
-app.get('/map/false',(req, res) => {
-  var query = pgClient.query("SELECT lat, lng FROM locations");
-  query.on("row", function (row, result) {
-    result.addRow(row);
-  });
-  query.on("end", function (result) {
-    console.log(result.rows);
-    //return the data to the page
-    res.render('map',{data: result.rows, act:"map",showR:0})
   });
 
 })
