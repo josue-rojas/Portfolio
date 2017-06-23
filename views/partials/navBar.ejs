@@ -16,6 +16,8 @@
          </ul>
        </li>
        <% } %>
+       <li class="<% if(act ==='map'){ %><%= 'active' %><% } %>">
+         <a href="/map">Map</a></li>
     <li class="<% if(act ==='blog'){ %><%= 'active' %><% } %>">
       <a href="/blog">Blog</a></li>
       <% if(act ==='blog' || act === 'newpost'){ %>

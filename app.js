@@ -44,6 +44,10 @@ app.get('/', (req, res) => {
   });
 })
 
+app.get('/map',(req, res) => {
+  res.render('map',{act:"map"})
+})
+
 //-----------------------------------------------------------------------------
 //blog home
 app.get('/blog',(req, res) =>{
