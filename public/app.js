@@ -172,52 +172,32 @@ function hideGeoBox(){
   $("#geoBoxAdd").fadeOut(700);
 }
 
-function getLocation(callback) {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            function(position){
-                callback({ "lat":position.coords.latitude,"lng":position.coords.longitude})
-            }
-        );
-    } else {
-      return "Unknown";
-    }
-}
-
 function addGeo(){
   var info = document.getElementById("info");
-  getLocation(function(res) {
-    console.log(res);
-    $.ajax({
-      type:"POST",
-      url:"/newLocation",
-      processData:false,
-      datatype:'json',
-      data:JSON.stringify(res),
-      success:function(resp){
-        window.location = window.location;
-      }
-    })
-  });
-  //
-  // if(navigator.geolocation){
-  //   navigator.geolocation.getCurrentPosition(function(position){
-  //     console.log("lat "+ position.coords.latitude + " lng " + position.coords.longitude);
-      // $.ajax({
-      //   type:"POST",
-      //   url:"/newLocation",
-      //   processData:false,
-      //   datatype:'json',
-      //   data:JSON.stringify({"lat":position.coords.latitude,"lng":position.coords.longitude}),
-      //   success:function(res){
-      //     window.location = window.location;
-      //   }
-      // })
-  //   }
-  // )}
-  // else {
-  //   info.innerHTML = "Geolocation is not supported by this browser. Could not add location."
-  // }
+  console.log("addgeo");
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function(position){
+      console.log({"lat":position.coords.latitude,"lng":position.coords.longitude});
+      postGeo(position.coords.latitude, position.coords.longitude);
+    }
+  )}
+  else {
+    info.innerHTML = "Geolocation is not supported by this browser. Could not add location."
+  }
+}
+
+function postGeo(lat, lng){
+  console.log({"inside postGeolat":position.coords.latitude,"lng":position.coords.longitude});
+  $.ajax({
+    type:"POST",
+    url:"/newLocation",
+    processData:false,
+    datatype:'json',
+    data:JSON.stringify({"lat":position.coords.latitude,"lng":position.coords.longitude}),
+    success:function(res){
+      window.location = window.location;
+    }
+  })
 }
 
 
