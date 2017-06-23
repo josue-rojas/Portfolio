@@ -11,6 +11,7 @@ function gitImage(id, mouseOver=true){
 
 function filterHome(id,total){
   if(!normalView) changeView();
+  normalView = true;
   if(id != -1){ $("#cont"+id).hide(1000,function(){
     $("#cont"+id).show(1000)})
   for(i = 0; i < total; i++){
