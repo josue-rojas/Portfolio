@@ -7,6 +7,10 @@
     </ol>
     <div class="carousel-inner">
       <% if(data){for(l = 0 ; l < data.length; l++){ %>
+        <div class="item active">
+          <div id="top<%= l %>" class="invi" onclick=""></div>
+          <iframe src="<%= data[l].url %>"> </iframe>
+        </div>
         <% } }%>
     </div>
 
