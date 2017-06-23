@@ -2,17 +2,10 @@
   <div class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <% if(data){for(j = 0 ; i < data.length; j++){ %>
-        <li data-target="#myCarousel" data-slide-to="<%= j %>" class="<% if(j==0>){ %>active<% }%>"></li>
+        <li data-target="#myCarousel" data-slide-to="<%= j %>" class="<% if(j==0>){ %>'activ<% }%>"></li>
         <% } }%>
     </ol>
-    <div class="carousel-inner">
-      <% if(data){for(l = 0 ; l < data.length; l++){ %>
-        <div class="item active">
-
-        </div>
-        <% } }%>
-    </div>
-
+  
   </div>
 </div>
   <!--
