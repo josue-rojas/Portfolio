@@ -213,11 +213,11 @@ function addGeo(){
       //     window.location = window.location;
       //   }
       // })
-    }
-  )}
-  else {
-    info.innerHTML = "Geolocation is not supported by this browser. Could not add location."
-  }
+  //   }
+  // )}
+  // else {
+  //   info.innerHTML = "Geolocation is not supported by this browser. Could not add location."
+  // }
 }
 
 
