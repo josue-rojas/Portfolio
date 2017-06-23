@@ -187,13 +187,13 @@ function addGeo(){
 }
 
 function postGeo(lat, lng){
-  console.log({"inside postGeolat":position.coords.latitude,"lng":position.coords.longitude});
+  console.log({"inside postGeolat":lat,"lng":lng});
   $.ajax({
     type:"POST",
     url:"/newLocation",
     processData:false,
     datatype:'json',
-    data:JSON.stringify({"lat":position.coords.latitude,"lng":position.coords.longitude}),
+    data:JSON.stringify({"lat":lat,"lng":lng}),
     success:function(res){
       window.location = window.location;
     }
