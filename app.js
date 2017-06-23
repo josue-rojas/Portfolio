@@ -55,7 +55,7 @@ app.get('/map(:show)?',(req, res) => {
     console.log(req.params.show);
     //return the data to the page
     if(!req.params.show) res.render('map',{data: result.rows, act:"map",showR:1});
-    else res.render('map',{data: result.rows, act:"map",showR:0});
+    else if(req.params.show == "false") res.render('map',{data: result.rows, act:"map",showR:0});
   });
 
 })
