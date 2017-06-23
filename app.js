@@ -46,15 +46,15 @@ app.get('/', (req, res) => {
 })
 
 app.get('/map',(req, res) => {
-  var query = pgClient.query("SELECT lat, lng FROM locations");
-  query.on("row", function (row, result) {
-    result.addRow(row);
-  });
-  query.on("end", function (result) {
-    //return the data to the page
-    res.render('map',{data: result.row, act:"map"})
-  });
-
+  // var query = pgClient.query("SELECT lat, lng FROM locations");
+  // query.on("row", function (row, result) {
+  //   result.addRow(row);
+  // });
+  // query.on("end", function (result) {
+  //   //return the data to the page
+  //   res.render('map',{data: result.row, act:"map"})
+  // });
+  //
 })
 
 //-----------------------------------------------------------------------------
