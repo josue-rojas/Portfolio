@@ -23,18 +23,7 @@
         </div>
     </div>
 
-  <% if(data){for(i = 0 ; i < data.length; i++){ %>
-    <div class="container" id="cont<%= i+1 %>">
-    <div class="jumbotron" id="jumbo<%= i+1 %>">
-      <a href="<%= data[i].url %>">
-        <img src="images/github_logo.png" class="containerImage" id="<%= i+1 %>" onmouseout="gitImage(<%= i+1 %>, false)" onmouseover="gitImage(<%= i+1 %>)"/>
-        </a>
-        <h2><%= data[i].title %></h2>
-        <p class="lead"><%= data[i].languages %></p>
-        <p><%= data[i].info %></p>
-      </div>
-    </div>
-        <% } }%>
+  <%- include home/normalView %>
 
 </body>
 <script src="app.js"></script>
