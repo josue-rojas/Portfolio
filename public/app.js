@@ -172,26 +172,47 @@ function hideGeoBox(){
   $("#geoBoxAdd").fadeOut(700);
 }
 
+function getLocation(callback) {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position){
+                callback({ "lat":position.coords.latitude,"lng":position.coords.longitude})
+            }
+        );
+    } else {
+      return "Unknown";
+    }
+}
+
 function addGeo(){
   var info = document.getElementById("info");
   console.log("addgeo");
-  if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(function(position){
-      console.log("lat "+ position.coords.latitude + " lng " + position.coords.longitude)
-      var postGeo = function(p = position.coords.latitude){
-        $.ajax({
-          type:"POST",
-          url:"/newLocation",
-          processData:false,
-          datatype:'json',
-          data:JSON.stringify({"lat":position.coords.latitude,"lng":position.coords.longitude}),
-          success:function(res){
-            window.location = window.location;
-          }
-        })
+  getLocation(function(res) {
+    $.ajax({
+      type:"POST",
+      url:"/newLocation",
+      processData:false,
+      datatype:'json',
+      data:JSON.stringify(res),
+      success:function(resp){
+        window.location = window.location;
       }
-      postGeo();
-
+    })
+  });
+  //
+  // if(navigator.geolocation){
+  //   navigator.geolocation.getCurrentPosition(function(position){
+  //     console.log("lat "+ position.coords.latitude + " lng " + position.coords.longitude);
+      // $.ajax({
+      //   type:"POST",
+      //   url:"/newLocation",
+      //   processData:false,
+      //   datatype:'json',
+      //   data:JSON.stringify({"lat":position.coords.latitude,"lng":position.coords.longitude}),
+      //   success:function(res){
+      //     window.location = window.location;
+      //   }
+      // })
     }
   )}
   else {
