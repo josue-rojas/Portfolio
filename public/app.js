@@ -1,5 +1,6 @@
 //home
 //-------------------------------------------------------------------------
+var normalView = true;
 
 //change github image used on home
 function gitImage(id, mouseOver=true){
@@ -9,6 +10,7 @@ function gitImage(id, mouseOver=true){
 }
 
 function filterHome(id,total){
+  if(!normalView) changeView();
   if(id != -1){ $("#cont"+id).hide(1000,function(){
     $("#cont"+id).show(1000)})
   for(i = 0; i < total; i++){
@@ -25,7 +27,6 @@ else{
 }
 }
 
-var normalView = true;
 function changeView(){
   if(normalView){
     $("#normalView").fadeOut(500);
