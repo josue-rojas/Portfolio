@@ -1,10 +1,5 @@
 ///important resources
 //http://www.tothenew.com/blog/connect-to-postgresql-using-javascript/
-//-!!!!!!!
-//database problems
-//-if delete post wont delete comments (no cascade delete added)
-//-need to have id set as primary keys for all tables
-//-need to fix table blog. body needs to have paragraphs and summary must be inferred from the body. (should handled before sending)
 
 var express = require('express');
 var pg = require('pg'); //postgres
@@ -15,7 +10,7 @@ app.use(express.static( "public" )); //access pictures and suchs
 
 app.use(parser.json());
 //connect to database
-var connectionString = "postgres://qztjolhrzsotrl:4f88f9621ee0de6a4cb1f161119f6d7885b37091aaa41428b21d5c6f0e504097@ec2-184-73-167-43.compute-1.amazonaws.com:5432/d462qipcfp5r43";
+var connectionString = ""
 var pgClient = new pg.Client(connectionString);
 pgClient.connect();
 //pgClient.query("CREATE TABLE IF NOT EXISTS blog(id SERIAL UNIQUE PRIMARY KEY, title varchar(255) NOT NULL, date date NOT NULL default CURRENT_DATE, summary text NOT NULL, body text NOT NULL)")
@@ -142,4 +137,4 @@ app.get('/*',function(req,res){
 })
 //-----------------------------------------------------------------------------
 console.log('listening on port 8080')
-app.listen(process.env.PORT)
+app.listen(process.env.PORT || 8080)
